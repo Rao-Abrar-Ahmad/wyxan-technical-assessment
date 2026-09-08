@@ -1,0 +1,22 @@
+{
+  "name": "wyxan-equipment-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Equipment Ledger technical assessment - append-only event ledger for physical tools",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n WEB,API -c cyan,magenta \"npm run dev -w apps/web\" \"npm run dev -w apps/api\"",
+    "build": "npm run build -w apps/api && npm run build -w apps/web",
+    "seed": "npm run seed -w apps/api",
+    "test:invariants": "npm run test:invariants -w apps/api",
+    "test": "npm run test -w apps/api"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "cross-env": "^10.1.0",
+    "normalize-path": "^3.0.0",
+    "parse-json": "^8.3.0"
+  }
+}
